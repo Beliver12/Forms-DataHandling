@@ -8,14 +8,19 @@
   <h1><%= title %></h1>
    <!-- In views/index.ejs -->
 <ul>
-<li>First Name:<%= user.firstName %></li>
-<li>Last Name:<%= user.lastName %></li>
-<li>Email:<%= user.email %></li>
-<li>Age:<%= user.age %></li>
-<li> Bio:<%= user.bio %> </li>
+  <% for (let i = 0; i < user.length; i++) { %>
+    <h3>Message <%=[i]%></h3>
+    <li>
+        <p><%= user[i].firstName %></p>
+        <p><%= user[i].lastName %></p>
+        <p><%= user[i].email %></p>
+        <p><%= user[i].age %></p>
+        <p><%= user[i].bio %></p>
+    </li>
+<% } %>
   </ul>
 
   
   <a href="/create">Create a user</a>
 </body>
-</html>
+</html> 

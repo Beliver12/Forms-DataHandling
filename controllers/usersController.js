@@ -13,6 +13,7 @@ exports.usersListGet = (req, res) => {
   res.render("index", {
     title: "User list",
     users: usersStorage.getUsers(),
+    
   });
 };
 
@@ -92,7 +93,7 @@ exports.usersDeletePost = (req, res) => {
     //const user = usersStorage.getUser(req.params.id);
    // console.log(req.query.firstName)
     const user = usersStorage.searchUser(req.query.firstName)
-    console.log(user);
+    //console.log(user);
     res.render("search", {
       title: "Search user",
       user: user,

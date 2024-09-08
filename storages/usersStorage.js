@@ -26,26 +26,27 @@ class UsersStorage {
     }
   
     deleteUser(id) {
-      console.log(id)
       delete this.storage[id];
+      console.log(this.storage)
     }
 
     searchUser(firstName) {
     
-     // console.log(firstName)
-    
      let objL = Object.keys(this.storage).length
-
-     for(let i = 0; i < objL; i++) {
-      //console.log(this.storage[i].firstName)
-      let user = {};
-      if(this.storage[i].firstName === firstName) {
-        this.searchedUser = this.storage[i];
-        
+     if(Object.keys(this.searchedUser).length > 1) {
+      this.searchedUser = {}
+    }
+    
+     for(let i = 0; i <= objL; i++) {
+      if(this.storage[i] === undefined) {
+        continue
+       
       } 
-     //console.log(this.searchedUser)
+      if(this.storage[i].firstName === firstName) {
+        Array.prototype.push.call(this.searchedUser, this.storage[i])   
+      }
      }
-      
+    //console.log(this.searchedUser)
       return Object(this.searchedUser);
     }
   }
