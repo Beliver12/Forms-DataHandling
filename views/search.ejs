@@ -8,13 +8,11 @@
   <h1><%= title %></h1>
    <!-- In views/index.ejs -->
 <ul>
-    <% if (locals.users) {%>
-      <% users.forEach(function(user) { %>
-        <li>ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>.
-          Email: <%= user.email %>, Age: <%= user.age %>, Bio: <%= user.bio %>
-        </li>
-      <% }); %>
-    <% } %>
+<li>First Name:<%= user.firstName %></li>
+<li>Last Name:<%= user.lastName %></li>
+<li>Email:<%= user.email %></li>
+<li>Age:<%= user.age %></li>
+<li> Bio:<%= user.bio %> </li>
   </ul>
 
   
