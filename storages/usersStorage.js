@@ -29,22 +29,22 @@ class UsersStorage {
     deleteUser(id) {
       delete this.storage[id];
      
-      Object.values(this.storage).forEach((val, index )=> {
-        console.log(this.storage[index])
-        
-       })
+    
     }
 
     searchUser(firstName) {
     this.searchedUser = {};
-    Object.values(this.storage).forEach((val, index )=> {
+    Object.values(this.storage).forEach((val )=> {
+      if(val && val.firstName === firstName){
+        Array.prototype.push.call(this.searchedUser, val) 
+      }
      // console.log(val.firstName)
-      if( val.firstName === firstName ){
-      Array.prototype.push.call(this.searchedUser, this.storage[index]) 
+     else {
+      return
       }
     })
    // console.log('storage:',this.storage)
-   // console.log('SearchedUser:',this.searchedUser)
+    console.log('SearchedUser:',this.searchedUser)
       return Object(this.searchedUser);
     }
   }

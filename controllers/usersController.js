@@ -77,7 +77,7 @@ const validateUser = [
           errors: errors.array(),
         });
       }
-      const { firstName, lastName, email } = req.body;
+      const { firstName, lastName, email, age, bio } = req.body;
       usersStorage.updateUser(req.params.id, { firstName, lastName, email, age, bio });
       res.redirect("/");
     }
