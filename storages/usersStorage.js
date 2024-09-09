@@ -11,6 +11,7 @@ class UsersStorage {
       const id = this.id;
       this.storage[id] = { id, firstName, lastName, email, age, bio };
       this.id++;
+    
     }
   
     getUsers() {
@@ -27,26 +28,23 @@ class UsersStorage {
   
     deleteUser(id) {
       delete this.storage[id];
-      console.log(this.storage)
+     
+      Object.values(this.storage).forEach((val, index )=> {
+        console.log(this.storage[index])
+        
+       })
     }
 
     searchUser(firstName) {
-    
-     let objL = Object.keys(this.storage).length
-     if(Object.keys(this.searchedUser).length > 1) {
-      this.searchedUser = {}
-    }
-    
-     for(let i = 0; i <= objL; i++) {
-      if(this.storage[i] === undefined) {
-        continue
-       
-      } 
-      if(this.storage[i].firstName === firstName) {
-        Array.prototype.push.call(this.searchedUser, this.storage[i])   
+    this.searchedUser = {};
+    Object.values(this.storage).forEach((val, index )=> {
+     // console.log(val.firstName)
+      if( val.firstName === firstName ){
+      Array.prototype.push.call(this.searchedUser, this.storage[index]) 
       }
-     }
-    //console.log(this.searchedUser)
+    })
+   // console.log('storage:',this.storage)
+   // console.log('SearchedUser:',this.searchedUser)
       return Object(this.searchedUser);
     }
   }
